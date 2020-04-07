@@ -109,6 +109,32 @@ class ZipCodeTest {
   @Nested
   class GivenASetOfKnownZipCodes {
 
+    @DisplayName("When zip code is known")
+    @Nested
+    class WhenZipCodeIsKnown {
+
+      @DisplayName("Then the correct TimeZone object is returned")
+      @Test
+      public void thenCorrectTimeZoneObjectIsReturned() throws Exception {
+        fail("test not implemented");
+      }
+
+    }
+
+    @DisplayName("When ZipCode is not known")
+    @Nested
+    class When {
+
+      @DisplayName("Then ????")
+      @Test
+      public void then() throws Exception {
+        fail("test not implemented");
+      }
+
+    }
+
+
+
   }
 
   @DisplayName("Given a set of rules for zip code structure")
