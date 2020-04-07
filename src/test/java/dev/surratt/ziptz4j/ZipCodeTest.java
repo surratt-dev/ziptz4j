@@ -143,10 +143,10 @@ class ZipCodeTest {
 
       ZipCode zipCode = ZipCode.getZipCode("00000");
 
-      @DisplayName("Then unknown is returned")
+      @DisplayName("Then UTC is returned")
       @Test
-      public void thenUnknownIsReturned() throws Exception {
-        assertEquals("Unknown", zipCode.getTimeZone());
+      public void thenUtcIsReturned() throws Exception {
+        assertEquals("UTC", zipCode.getTimeZone());
       }
 
     }

@@ -139,7 +139,7 @@ public class ZipCode {
     String timeZoneId = zipCodeToTZ.getProperty(getCode());
 
     if (timeZoneId == null) {
-      timeZoneId = "Unknown";
+      timeZoneId = "UTC";
     }
 
     return timeZoneId;
