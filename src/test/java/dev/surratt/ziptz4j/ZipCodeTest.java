@@ -109,6 +109,49 @@ class ZipCodeTest {
   @Nested
   class GivenASetOfKnownZipCodes {
 
+    @DisplayName("When a zip code is known")
+    @Nested
+    class WhenZipCodeIsKnown {
+
+      final ZipCode zipCode = ZipCode.getZipCode("87121");
+
+      @DisplayName("Then the correct TimeZone ID is returned")
+      @Test
+      public void thenCorrectTimeZoneIdIsReturned() throws Exception {
+        assertEquals("America/Denver", zipCode.getTimeZoneID());
+      }
+
+    }
+
+    @DisplayName("When an extended zip code is known")
+    @Nested
+    class When {
+
+      final ZipCode zipCode = ZipCode.getZipCode("97034-1234");
+
+      @DisplayName("Then the correct TimeZone ID is returned for an extended Zip Code")
+      @Test
+      public void then() throws Exception {
+        assertEquals("America/Los_Angeles", zipCode.getTimeZoneID());
+      }
+
+    }
+
+    @DisplayName("When ZipCode is not known")
+    @Nested
+    class WhenZipCodeIsNotKnown {
+
+      ZipCode zipCode = ZipCode.getZipCode("00000");
+
+      @DisplayName("Then unknown is returned")
+      @Test
+      public void thenUnknownIsReturned() throws Exception {
+        assertEquals("Unknown", zipCode.getTimeZoneID());
+      }
+
+    }
+
+
   }
 
   @DisplayName("Given a set of rules for zip code structure")
