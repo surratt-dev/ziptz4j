@@ -118,7 +118,7 @@ class ZipCodeTest {
       @DisplayName("Then the correct TimeZone ID is returned")
       @Test
       public void thenCorrectTimeZoneIdIsReturned() throws Exception {
-        assertEquals("America/Denver", zipCode.getTimeZoneID());
+        assertEquals("America/Denver", zipCode.getTimeZone());
       }
 
     }
@@ -132,7 +132,7 @@ class ZipCodeTest {
       @DisplayName("Then the correct TimeZone ID is returned for an extended Zip Code")
       @Test
       public void then() throws Exception {
-        assertEquals("America/Los_Angeles", zipCode.getTimeZoneID());
+        assertEquals("America/Los_Angeles", zipCode.getTimeZone());
       }
 
     }
@@ -146,7 +146,7 @@ class ZipCodeTest {
       @DisplayName("Then unknown is returned")
       @Test
       public void thenUnknownIsReturned() throws Exception {
-        assertEquals("Unknown", zipCode.getTimeZoneID());
+        assertEquals("Unknown", zipCode.getTimeZone());
       }
 
     }

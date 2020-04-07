@@ -1,7 +1,10 @@
+group = "dev.surratt"
+version = "0.1.0"
 
 plugins {
     `java-library`
     checkstyle
+    `maven-publish`
 }
 
 repositories {
@@ -22,9 +25,10 @@ dependencies {
 checkstyle {
     toolVersion = "8.31"
     configFile = file("config/checkstyle/google_checks.xml")
-//    isIgnoreFailures = true
 }
 
 val test by tasks.getting(Test::class) {
     useJUnitPlatform()
 }
+
+val javadoc by tasks
