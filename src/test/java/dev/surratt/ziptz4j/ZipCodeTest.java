@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -98,6 +99,84 @@ class ZipCodeTest {
       @Test
       public void thenGetValue() throws Exception {
         assertEquals(testValue, zipCode.getValue());
+      }
+
+    }
+
+  }
+
+  @DisplayName("Given a set of known zip codes")
+  @Nested
+  class GivenASetOfKnownZipCodes {
+
+  }
+
+  @DisplayName("Given a set of rules for zip code structure")
+  @Nested
+  class GivenASetOfRules {
+
+    @DisplayName("When isValid is called")
+    @Nested
+    class WhenIsValidIsCalled {
+
+      @DisplayName("Then isValid returns false when null is passed")
+      @Test
+      public void thenNullIsInvalid() throws Exception {
+        assertFalse(ZipCode.isValid(null));
+      }
+
+      @DisplayName("Then isValid returns true when string is 5 digits")
+      @Test
+      public void then5DigitsIsValid() throws Exception {
+        assertTrue(ZipCode.isValid("12345"));
+      }
+
+      @DisplayName("Then isValid returns true when string is 9 digits")
+      @Test
+      public void then9DigitsIsValis() throws Exception {
+        assertTrue(ZipCode.isValid("123455309"));
+      }
+
+      @DisplayName("Then isValid returns true when string is extended format")
+      @Test
+      public void thenExtendedFormatIsValid() throws Exception {
+        assertTrue(ZipCode.isValid("12345-5309"));
+      }
+
+      @DisplayName("Then isValid returns false when the string has alpha characters ")
+      @Test
+      public void thenContainsAlphaIsInvalid() throws Exception {
+        assertFalse(ZipCode.isValid("12T45"));
+      }
+
+      @DisplayName("Then isValid returns false when the string is less than 5 characters")
+      @Test
+      public void thenLessThan5CharactersInvalid() throws Exception {
+        assertFalse(ZipCode.isValid("1234"));
+      }
+
+      @DisplayName("Then isValid returns false when the string is more than 10 characters")
+      @Test
+      public void then() throws Exception {
+        assertFalse(ZipCode.isValid("12345678901"));
+      }
+
+    }
+
+    @DisplayName("When getZipCode is called with an invalid string")
+    @Nested
+    class WhenGetZipCode {
+
+      @DisplayName("Then an IllegalArgumentException is thrown")
+      @Test
+      public void then() throws Exception {
+        try {
+          ZipCode.getZipCode("1");
+          fail("Expected an exception.");
+        } catch (IllegalArgumentException e) {
+          assertEquals("Invalid zip code [1]", e.getMessage());
+        }
+
       }
 
     }
