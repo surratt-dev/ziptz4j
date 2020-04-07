@@ -19,8 +19,10 @@ import java.util.Properties;
  *    TimeZone timeZone = TimeZone.getTimeZone(timeZoneName);
  *  }
  *  </pre></blockquote>
- *
- *  With the resulting <code>TimeZone</code> object you will have access to all the behavior provided by the JRE.
+ *<p>
+ *  With the resulting <code>TimeZone</code> object you will have access to all the
+ *  behavior provided by the JRE.
+ *</p>
  */
 public class ZipCode {
 
@@ -50,7 +52,8 @@ public class ZipCode {
   private final String value;
 
   /**
-   * Return an instance of the ZipCode class for the specified zip code value.  Value must be in one of the following formats:
+   * Return an instance of the ZipCode class for the specified zip code value.
+   * Value must be in one of the following formats:
    * <ul>
    * <li><code>#####</code> - simple 5 digit code </li>
    * <li>######## - 9 digit code</li>
@@ -125,7 +128,8 @@ public class ZipCode {
   }
 
   /**
-   * Returns the full name for the time zone id associated with the zip code instance.  Ex: <code>America/New_York</code> If there is no mapping for
+   * Returns the full name for the time zone id associated with the zip code instance.
+   * Ex: <code>America/New_York</code> If there is no mapping for
    * the zip code, then "Unknown" will be returned.
    *
    * @return the display name for the time zone, or "Unknown".
