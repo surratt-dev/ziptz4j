@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "dev.surratt"
-version = "0.1.0"
+version = "0.1.1"
 
 extra["isReleaseVersion"] = !version.toString().endsWith("SNAPSHOT")
 
@@ -58,14 +58,6 @@ val sonatypeUsername: String? by project
 
 publishing {
     repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/briansurratt/ziptz4j")
-            credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
-            }
-        }
         maven {
             name = "Central"
             url = when {
