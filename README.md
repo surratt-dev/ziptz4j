@@ -11,7 +11,7 @@ ZipTz4J is a Java library for mapping US zip codes to timezones.  It is a port o
 Gradle (Kotlin) 
 ```
 dependencies {
-    implementation("dev.surratt:ziptz4j:0.1.1}")
+    implementation("dev.surratt:ziptz4j:0.1.1")
 }
 ```
 
