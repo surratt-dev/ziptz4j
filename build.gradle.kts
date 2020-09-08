@@ -1,3 +1,4 @@
+import org.sonarqube.gradle.SonarQubeProperties
 import java.net.URI
 
 plugins {
@@ -5,6 +6,7 @@ plugins {
     checkstyle
     `maven-publish`
     signing
+    id("org.sonarqube") version "3.0"
 }
 
 group = "dev.surratt"
@@ -27,6 +29,7 @@ java {
 }
 
 dependencies {
+    implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.4.2")
 }
@@ -50,7 +53,7 @@ val javadocJar by tasks.creating(Jar::class) {
 
 val sourcesJar by tasks.creating(Jar::class) {
     classifier = "sources"
-    from ("src/main/java")
+    from("src/main/java")
 }
 
 val sonatypePassword: String? by project
@@ -76,7 +79,7 @@ publishing {
             artifact(sourcesJar)
             artifact(javadocJar)
             pom {
-                name.set ("ziptz4j")
+                name.set("ziptz4j")
                 description.set("A library to map from a US zip code to a time zone")
                 url.set("https://github.com/briansurratt/ziptz4j")
                 licenses {
@@ -111,7 +114,19 @@ if (project.hasProperty("signing.keyId")) {
     }
 }
 
-//signing {
-//    sign(publishing.publications[project.name])
+//sonarqube {
+//    properties {
+//        property "sonar.projectKey", "briansurratt_ziptz4j"
+//        property "sonar.organization", "briansurratt"
+//        property "sonar.host.url", "https://sonarcloud.io"
+//    }
 //}
 
+
+sonarqube {
+    properties {
+        property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.projectKey", "briansurratt_ziptz4j")
+        property("sonar.organization", "briansurratt")
+    }
+}
