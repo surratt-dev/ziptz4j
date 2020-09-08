@@ -5,6 +5,8 @@ ZipTz4J is a Java library for mapping US zip codes to timezones.  It is a port o
 ![](https://img.shields.io/maven-central/v/briansurratt/ziptz4j)
 ![](https://img.shields.io/github/workflow/status/briansurratt/ziptz4j/Java%20CI%20with%20Gradle)
 ![](https://img.shields.io/github/issues/briansurratt/ziptz4j)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=briansurratt_ziptz4j&metric=alert_status)](https://sonarcloud.io/dashboard?id=briansurratt_ziptz4j)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=briansurratt_ziptz4j&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=briansurratt_ziptz4j)
 
 ## Installation
 
